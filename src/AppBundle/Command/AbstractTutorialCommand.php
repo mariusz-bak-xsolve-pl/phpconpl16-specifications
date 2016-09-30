@@ -33,6 +33,7 @@ abstract class AbstractTutorialCommand extends ContainerAwareCommand
         $rulerz = new RulerZ(
             $compiler, [
                 new Target\ArrayVisitor(),
+                new Target\Sql\DoctrineQueryBuilderVisitor(),
             ]
         );
 
