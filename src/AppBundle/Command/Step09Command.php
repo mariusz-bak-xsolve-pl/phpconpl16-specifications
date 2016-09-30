@@ -22,23 +22,14 @@ class Step09Command extends AbstractTutorialCommand
     {
         $rulerz = $this->getRulerZ();
 
-        $babyUnicorn = new Unicorn('Elsie');
-        $babyUnicorn->setBirthDate(new \DateTime('-1 year'));
-
-        $teenageUnicorn = new Unicorn('Ryan');
-        $teenageUnicorn->setBirthDate(new \DateTime('-16 year'));
-
-        $unicorns = [$babyUnicorn, $teenageUnicorn];
+        $qb = $this->getContainer()->get('doctrine')
+            ->getRepository('AppBundle:Unicorn')
+            ->createQueryBuilder('u');
 
         $spec1 = new Baby();
-        $babyUnicorns1 = $rulerz->filterSpec($unicorns, $spec1);
+        $babyUnicorns1 = $rulerz->filterSpec($qb, $spec1);
 
         $this->showEntitiesTable('Baby unicorns', iterator_to_array($babyUnicorns1), $output);
-
-        $spec2 = new Younger(2);
-        $babyUnicorns2 = $rulerz->filterSpec($unicorns, $spec2);
-
-        $this->showEntitiesTable('Unicorns younger than 2 days', iterator_to_array($babyUnicorns2), $output);
     }
 
     /**

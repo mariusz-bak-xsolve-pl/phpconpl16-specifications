@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace AppBundle\Command;
 
+use AppBundle\Spec\Operator\DoctrineAgeOperator;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use RulerZ\Compiler\FileCompiler;
 use RulerZ\Compiler\Target;
@@ -30,13 +31,16 @@ abstract class AbstractTutorialCommand extends ContainerAwareCommand
             $this->getContainer()->getParameter('kernel.cache_dir') . '/rulerz'
         );
 
+        $doctrineQueryBuilderVisitor = new Target\Sql\DoctrineQueryBuilderVisitor();
+        $doctrineQueryBuilderVisitor->setInlineOperator('age', new DoctrineAgeOperator());
+
         // RulerZ engine
         $rulerz = new RulerZ(
             $compiler, [
                 new Target\ArrayVisitor([
                     'age' => new ArrayAgeOperator(), // One can use here a function callback, or an object with __invoke method implemented and returning some value.
                 ]),
-//                new Target\Sql\DoctrineQueryBuilderVisitor(),
+                $doctrineQueryBuilderVisitor,
             ]
         );
 

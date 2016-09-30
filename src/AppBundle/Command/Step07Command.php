@@ -18,7 +18,6 @@ class Step07Command extends AbstractTutorialCommand
 {
     public function run(InputInterface $input, OutputInterface $output)
     {
-        // Need to run ./bin/console rad:fixtures:load to populate database.
         $qb = $this->getContainer()->get('doctrine')
             ->getRepository('AppBundle:Unicorn')
             ->createQueryBuilder('u');
