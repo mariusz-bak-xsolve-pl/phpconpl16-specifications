@@ -23,7 +23,7 @@ class Step07Command extends AbstractTutorialCommand
             ->getRepository('AppBundle:Unicorn')
             ->createQueryBuilder('u');
 
-        $spec = new InHerd('Adams');
+        $spec = new InHerd(['Adams', 'Steuber']);
         $rulerz = $this->getRulerZ();
         $awesomeUnicorns = $rulerz->filterSpec($qb, $spec);
 

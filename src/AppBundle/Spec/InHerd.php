@@ -6,26 +6,26 @@ use RulerZ\Spec\AbstractSpecification;
 
 class InHerd extends AbstractSpecification
 {
-    /** @var string */
-    protected $herdName;
+    /** @var array */
+    protected $herdNames;
 
     /**
-     * @param string $herdName
+     * @param array $herdNames
      */
-    public function __construct(string $herdName)
+    public function __construct(array $herdNames)
     {
-        $this->herdName = $herdName;
+        $this->herdNames = $herdNames;
     }
 
     public function getRule(): string
     {
-        return 'herd.name = :herdName';
+        return 'herd.name IN :herdNames';
     }
 
     public function getParameters(): array
     {
         return [
-            'herdName' => $this->herdName,
+            'herdNames' => $this->herdNames,
         ];
     }
 }
