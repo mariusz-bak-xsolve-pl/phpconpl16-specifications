@@ -4,13 +4,16 @@ declare(strict_types = 1);
 
 namespace AppBundle\Command;
 
+use AppBundle\Spec\Fluffy;
+use AppBundle\Spec\LaserHorn;
+use RulerZ\Spec\AndX;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use AppBundle\Entity\Unicorn;
 use AppBundle\Spec\Awesome;
 
-class Step05Command extends AbstractTutorialCommand
+class Step06Command extends AbstractTutorialCommand
 {
     public function run(InputInterface $input, OutputInterface $output)
     {
@@ -19,12 +22,16 @@ class Step05Command extends AbstractTutorialCommand
             ->getRepository('AppBundle:Unicorn')
             ->createQueryBuilder('u');
 
-        $spec = new Awesome();
+        $spec = new AndX([
+            new Awesome(),
+            new LaserHorn(),
+            (new Fluffy())->not(),
+        ]);
         $rulerz = $this->getRulerZ();
         $awesomeUnicorns = $rulerz->filterSpec($qb, $spec);
 
         $table = new Table($output);
-        $table->setHeaders(['Name', 'Color', 'Has laser horn?', 'Poops rainbows?', 'Can fly?', 'Fluffy?']);
+        $table->setHeaders(['Id', 'Name', 'Color', 'Birth date', 'Has laser horn?', 'Poops rainbows?', 'Can fly?', 'Fluffy?']);
 
         /** @var Unicorn $awesomeUnicorn */
         foreach ($awesomeUnicorns as $awesomeUnicorn) {

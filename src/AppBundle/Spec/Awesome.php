@@ -6,7 +6,7 @@ namespace AppBundle\Spec;
 
 use RulerZ\Spec\AbstractSpecification;
 
-class AwesomeUnicorn extends AbstractSpecification
+class Awesome extends AbstractSpecification
 {
     public function getRule(): string
     {
