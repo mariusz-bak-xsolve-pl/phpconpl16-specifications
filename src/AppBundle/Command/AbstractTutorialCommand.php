@@ -9,6 +9,7 @@ use RulerZ\Compiler\FileCompiler;
 use RulerZ\Compiler\Target;
 use RulerZ\Parser\HoaParser;
 use RulerZ\RulerZ;
+use AppBundle\Spec\Operator\ArrayAgeOperator;
 
 abstract class AbstractTutorialCommand extends ContainerAwareCommand
 {
@@ -32,8 +33,10 @@ abstract class AbstractTutorialCommand extends ContainerAwareCommand
         // RulerZ engine
         $rulerz = new RulerZ(
             $compiler, [
-                new Target\ArrayVisitor(),
-                new Target\Sql\DoctrineQueryBuilderVisitor(),
+                new Target\ArrayVisitor([
+                    'age' => new ArrayAgeOperator(), // One can use here a function callback, or an object with __invoke method implemented and returning some value.
+                ]),
+//                new Target\Sql\DoctrineQueryBuilderVisitor(),
             ]
         );
 

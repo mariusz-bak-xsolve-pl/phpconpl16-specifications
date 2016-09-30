@@ -200,7 +200,7 @@ class Unicorn
             'poopsRainbows' => $this->poopsRainbows,
             'canFly' => $this->canFly,
             'fluffy' => $this->fluffy,
-            'herdName' => $this->herd->getName(),
+            'herdName' => ($this->herd instanceof Herd) ? $this->herd->getName() : '-None-',
         ];
     }
 }
