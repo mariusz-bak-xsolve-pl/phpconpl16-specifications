@@ -67,3 +67,10 @@ services:
         class: AppBundle\Spec\Operator\DoctrineAgeOperator
         tags:
             - { name: rulerz.operator, executor: rulerz.executor.doctrine, operator: age, inline: true }
+    app.unicorn_repository:
+        class: AppBundle\Repository\UnicornRepository
+        factory: [ '@doctrine.orm.entity_manager', getRepository ]
+        arguments:
+            - 'AppBundle:Unicorn'
+        calls:
+            - [ setRulerZ, [ '@rulerz' ] ]

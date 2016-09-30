@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace AppBundle\Command;
 
@@ -15,5 +15,4 @@ class Step01Command extends AbstractTutorialCommand
 
         var_dump($rulerz);
     }
-
 }

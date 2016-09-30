@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace AppBundle\Command;
 
@@ -36,7 +36,6 @@ class Step04Command extends AbstractTutorialCommand
         $table->render();
 
         $isAwesome = $rulerz->satisfiesSpec($unicorns[3], $spec);
-        $output->writeln('Fluffy ' . ($isAwesome ? 'is' : 'is not') . ' awesome.');
+        $output->writeln('Fluffy '.($isAwesome ? 'is' : 'is not').' awesome.');
     }
-
 }

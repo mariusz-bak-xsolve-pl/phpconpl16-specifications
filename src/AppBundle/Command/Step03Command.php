@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace AppBundle\Command;
 
@@ -37,7 +37,6 @@ class Step03Command extends AbstractTutorialCommand
 
         $isFluffy = $rulerz->satisfies($unicorns[3], $rule);
 
-        $output->writeln('Fluffy ' . ($rulerz->satisfies($unicorns[3], $rule) ? 'is' : 'is not') . ' fluffy.');
+        $output->writeln('Fluffy '.($rulerz->satisfies($unicorns[3], $rule) ? 'is' : 'is not').' fluffy.');
     }
-
 }

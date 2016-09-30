@@ -1,18 +1,15 @@
 <?php
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace AppBundle\Command;
 
 use AppBundle\Spec\Fluffy;
 use AppBundle\Spec\InHerd;
-use AppBundle\Spec\LaserHorn;
-use RulerZ\Spec\AndX;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use AppBundle\Entity\Unicorn;
-use AppBundle\Spec\Awesome;
 
 class Step07Command extends AbstractTutorialCommand
 {
