@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0c488d87b798c48c77417dd9325a9d49",
-    "content-hash": "39bd913c4b7d9f11286f73cd3631f16f",
+    "hash": "8acfe960ddb23d1255c8fa2f5b26d651",
+    "content-hash": "4990e5d327650b0b099f7d9826cd3483",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1890,6 +1890,57 @@
                 "specification"
             ],
             "time": "2016-03-18 08:34:34"
+        },
+        {
+            "name": "kphoen/rulerz-bundle",
+            "version": "0.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/K-Phoen/RulerZBundle.git",
+                "reference": "e57da1ca5806c31bfd0bb93089bc71cbf7324ad1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/K-Phoen/RulerZBundle/zipball/e57da1ca5806c31bfd0bb93089bc71cbf7324ad1",
+                "reference": "e57da1ca5806c31bfd0bb93089bc71cbf7324ad1",
+                "shasum": ""
+            },
+            "require": {
+                "kphoen/rulerz": "~0.17",
+                "symfony/framework-bundle": "~2.5|~3.0",
+                "symfony/validator": "~2.5|~3.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-dependency-injection-test": "~0.7",
+                "mikey179/vfsstream": "~1.0",
+                "phpunit/phpunit": "~4.8",
+                "symfony/phpunit-bridge": "~2.7|~3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "KPhoen\\RulerZBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Gomez",
+                    "email": "contact@kevingomez.fr"
+                }
+            ],
+            "description": "Symfony2 Bundle for RulerZ",
+            "homepage": "https://github.com/K-Phoen/RulerZBundle",
+            "keywords": [
+                "doctrine",
+                "ruler",
+                "rulerz",
+                "specification"
+            ],
+            "time": "2016-06-11 19:36:50"
         },
         {
             "name": "monolog/monolog",

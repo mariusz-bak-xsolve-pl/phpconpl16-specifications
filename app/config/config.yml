@@ -52,3 +52,18 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
+# RulerZ
+kphoen_rulerz:
+    executors:
+        doctrine: true
+
+services:
+    operator.array.age:
+        class: AppBundle\Spec\Operator\ArrayAgeOperator
+        tags:
+            - { name: rulerz.operator, executor: rulerz.executor.array, operator: age }
+    operator.doctrine.age:
+        class: AppBundle\Spec\Operator\DoctrineAgeOperator
+        tags:
+            - { name: rulerz.operator, executor: rulerz.executor.doctrine, operator: age, inline: true }

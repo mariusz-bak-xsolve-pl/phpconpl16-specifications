@@ -15,6 +15,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Knp\Rad\FixturesLoad\Bundle\FixturesLoadBundle(),
             new AppBundle\AppBundle(),
+            new KPhoen\RulerZBundle\KPhoenRulerZBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
